@@ -1,14 +1,14 @@
 //Filter - How a manipulation of database
 const { obterPessoas } = require("./service.js");
 
+//==// FOR IN //==//
 Array.prototype.meuFilter = function(callback) {
   const lista = []
   for(index in this) {
-    //item and the list
     const item = this[index]
-    const result = callback(item, index, this) //with three params
+    const result = callback(item, index, this) //The filter use three params
     //0, "", null, undefined === false
-    if(!result) continue;
+    if(!result) continue; //se for falso ele continua o fluxo 
     lista.push(item)
   }
   return lista;
